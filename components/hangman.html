@@ -1,3 +1,4 @@
+     <!-- Michael Barrell -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="hangman.css">
 </head>
 <body>
     <h1>Hangman: 50 States Edition</h1>
@@ -36,6 +37,14 @@
         <div class="word" id="word"></div>
     </div>
 
+   <!-- Section for keyboard -->
+   <div class="popup-container" id="popup-container">
+    <div class="popup">
+        <h2 id="final-message"></h2>
+        <button id="play-button">Play Again</button>
+    </div>
+</div>
+
     <!-- Container for final message -->
     <div class="popup-container" id="popup-container">
         <div class="popup">
@@ -48,6 +57,6 @@
     <div class="notification-container" id="notification-container">
         <p>You have already entered this letter</p>
     </div>
-    <script src="script.js"></script>
+    <script src="hangmanScript.js"></script>
 </body>
 </html>

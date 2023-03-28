@@ -1,3 +1,4 @@
+//Tristan Goutain
 const wordE1 = document.getElementById("word");
 const wrongLettersE1 = document.getElementById("wrong-letters");
 const playAgainBtn = document.getElementById("play-button");

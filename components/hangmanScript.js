@@ -193,7 +193,7 @@ function displayWord() {
       .split("")
       .map(
         (letter) => `
-        <span class="letter">
+        <span class=${letter != " " ? "letter" : "space"}>
         ${correctLetters.includes(letter) ? letter : ""}
         </span>
         `
@@ -203,8 +203,8 @@ function displayWord() {
 
   const innerWord = wordE1.innerText.replace(/\n/g, "");
 
-  if (innerWord === selectedWord) {
-    finalMessage.innerText = "Congratulations! You won! ";
+  if (innerWord.replace(" ", "") === selectedWord.replace(" ", "")) {
+    finalMessage.innerText = "Congratulations! You won!";
     popup.style.display = "flex";
   }
 }

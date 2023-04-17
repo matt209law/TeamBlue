@@ -5,10 +5,11 @@ const playAgainBtn = document.getElementById("play-button");
 const popup = document.getElementById("popup-container");
 const notification = document.getElementById("notification-container");
 const finalMessage = document.getElementById("final-message");
+const categoryButton = document.getElementById("cats");
 
 const figureParts = document.querySelectorAll(".figure-part");
 
-const words = [
+const catStates = [
   "alabama",
   "alaska",
   "arizona",
@@ -19,7 +20,6 @@ const words = [
   "delaware",
   "florida",
   "georgia",
-  ,
   "hawaii",
   "idaho",
   "illinois",
@@ -38,19 +38,19 @@ const words = [
   "montana",
   "nebraska",
   "nevada",
-  "newhampshire",
-  "newjersey",
-  "newmexico",
-  "newyork",
-  "northcarolina",
-  "northdakota",
+  "new hampshire",
+  "new jersey",
+  "new mexico",
+  "new york",
+  "north carolina",
+  "north dakota",
   "ohio",
   "oklahoma",
   "oregon",
   "pennsylvania",
   "rhode island",
-  " southcarolina",
-  "southdakota",
+  "south carolina",
+  "south dakota",
   "tennessee",
   "texas",
   "utah",
@@ -59,13 +59,132 @@ const words = [
   "washington",
   "west virginia",
   "wisconsin",
-  "woyoming",
+  "wyoming",
 ];
 
-let selectedWord = words[Math.floor(Math.random() * words.length)];
+const catCountries = [
+  "australia",
+  "brazil",
+  "canada",
+  "denmark",
+  "egypt",
+  "france",
+  "germany",
+  "honduras",
+  "india",
+  "japan",
+  "kenya",
+  "luxembourg",
+  "morocco",
+  "netherlands",
+  "oman",
+  "pakistan",
+  "qatar",
+  "russia",
+  "sweden",
+  "thailand",
+  "ukraine",
+  "vietnam",
+  "yemen",
+  "zimbabwe"
+];
+
+const catFruits = [
+  "apple",
+  "banana",
+  "cherry",
+  "durian",
+  "elderberry",
+  "fig",
+  "grapefruit",
+  "honeydew",
+  "jackfruit",
+  "kiwi",
+  "lemon",
+  "mango",
+  "nectarine",
+  "orange",
+  "pineapple",
+  "quince",
+  "raspberry",
+  "strawberry",
+  "tangerine",
+  "tomato",
+  "ugli fruit",
+  "watermelon",
+  "xigua",
+  "yellow watermelon",
+  "zucchini"
+];
+
+const catSports = [
+  "basketball",
+  "cricket",
+  "diving",
+  "equestrianism",
+  "football",
+  "golf",
+  "hockey",
+  "judo",
+  "karate",
+  "lacrosse",
+  "martial arts",
+  "netball",
+  "orienteering",
+  "polo",
+  "quidditch",
+  "rugby",
+  "soccer",
+  "tennis",
+  "ultimate frisbee",
+  "volleyball",
+  "wrestling",
+  "xare",
+  "yoga",
+  "zumba"
+];
+
+const categories = [catStates, catSports, catFruits, catCountries];
+
+var selectedWord;
 
 const correctLetters = [];
 const wrongLetters = [];
+
+function selectWord() {
+  let random = false;
+  var cat;
+  for(i = 0; i < categoryButton.options.length; i++) {
+    if(categoryButton.options[i].selected) {
+      cat = categoryButton.options[i].value;
+      break;
+    }
+  }
+  var catList;
+  switch(cat) {
+    case "states":
+      catList = catStates;
+      break;
+    case "countries":
+      catList = catCountries;
+      break;
+    case "fruits":
+      catList = catFruits;
+      break;
+    case "sports":
+      catList = catFruits;
+      break;
+    default:
+      random = true;
+      break;
+  }
+  if(random) {
+    catList = categories[Math.floor(Math.random() * categories.length)];
+  }
+  selectedWord = catList[Math.floor(Math.random() * catList.length)];
+  console.log("Selected word is: " + selectedWord);
+  displayWord()
+}
 
 //Show hidden word
 function displayWord() {
@@ -156,13 +275,11 @@ playAgainBtn.addEventListener("click", () => {
   correctLetters.splice(0);
   wrongLetters.splice(0);
 
-  selectedWord = words[Math.floor(Math.random() * words.length)];
-
-  displayWord();
+  selectWord();
 
   updateWrongLetterE1();
 
   popup.style.display = "none";
 });
 
-displayWord();
+selectWord();

@@ -17,11 +17,13 @@ body{
 
 h1{
         grid-area: title;
-        color: rgb(50, 177, 149);
-        font-size: 4rem;
+        background-color: rgb(50, 177, 149);
+        font-size: rem;
         text-align: center;
         letter-spacing: 0.8rem;   
 }
+
+p { font-size: 140%; color: rgb(2, 19, 1); }
 
 .game-container{
     padding: 20px 30px;

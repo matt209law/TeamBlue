@@ -16,7 +16,11 @@ body{
 }
 
 h1{
-    margin: 20px 0 0;
+        grid-area: title;
+        color: rgb(50, 177, 149);
+        font-size: 4rem;
+        text-align: center;
+        letter-spacing: 0.8rem;   
 }
 
 .game-container{
